@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3a8ce671cbcf401198f81df97539dfa4" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="EpsnModel.Admin" Width="1.5" PointX="12.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Article" Width="1.5" PointX="15" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.AspNetRole" Width="1.5" PointX="13.125" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.AspNetUserClaim" Width="1.5" PointX="19" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.AspNetUserLogin" Width="1.5" PointX="13.875" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.AspNetUser" Width="2.125" PointX="15.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Categories_Articles" Width="1.5" PointX="17.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Certification" Width="1.5" PointX="9.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Course_Lessons" Width="1.5" PointX="12.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Course_units" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Cours" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Courses_Name" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Group" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Source" Width="1.5" PointX="17.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Student" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Students_Groups" Width="1.5" PointX="9.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Trainee" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Trainee_courses" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Trainer" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Trainer_Courses" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EpsnModel.Writer" Width="1.5" PointX="12.75" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="EpsnModel.FK_Article_Writer" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Categories_Articles_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Source_Article" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Course_Lessons_Course_units" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Course_Lessons_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Groups_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Trainee_courses_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Trainer_Courses_Courses" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Trainee_Courses_Name" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Students_Groups_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Students_Groups_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Trainee_courses_Trainee" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.FK_Trainer_Courses_Trainer" ManuallyRouted="false" />
+        <AssociationConnector Association="EpsnModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EpsnModel.Category" Width="1.5" PointX="0.5" PointY="6" />
+        <EntityTypeShape EntityType="EpsnModel.Category_Article" Width="1.5" PointX="19.625" PointY="3.25" />
+        <AssociationConnector Association="EpsnModel.FK_Category_Articles_Category_Articles_ID" />
+        <AssociationConnector Association="EpsnModel.FK_Courses_Category" />
+        <EntityTypeShape EntityType="EpsnModel.Gallery_Image" Width="1.5" PointX="8.25" PointY="12.75" />
+        <EntityTypeShape EntityType="EpsnModel.Gallery_Testimonial" Width="1.5" PointX="7.25" PointY="14.625" />
+        <EntityTypeShape EntityType="EpsnModel.Gallery_Video" Width="1.5" PointX="6" PointY="12.875" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

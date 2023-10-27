@@ -1,0 +1,26 @@
+﻿@model EPSN.Gallery_Testimonial
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Gallery_Testimonial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Testimonial_Image)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(model => model.Testimonial_Image)" class="thumbnail" style="width:100px; height:100px;" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Testimonial }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

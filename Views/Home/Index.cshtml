@@ -1,0 +1,225 @@
+﻿@using EPSN.Models;
+@model dynamic
+@{
+    ViewBag.Title = "Client Dashboard";
+}
+<div class="slider" style="margin-top: 100px;">
+    <!-- fade css -->
+    <div class="myslide fadee">
+        <div class="txt">
+            <h1>EPSN</h1>
+            <p>Web Devoloper<br>Subscribe To My Channel For More Videos</p>
+        </div>
+        <img class="slide-land" src="~/Images/img1.jpg" style="width: 100%; height: 100%;">
+    </div>
+    <div class="myslide fadee">
+        <div class="txt">
+            <h1>IMAGE 2</h1>
+            <p>Web Devoloper<br>Subscribe To My Channel For More Videos</p>
+        </div>
+        <img class="slide-land" src="~/Images/img2.jpg" style="width: 100%; height: 100%;">
+    </div>
+    <div class="myslide fadee">
+        <div class="txt">
+            <h1>IMAGE 3</h1>
+            <p>Web Devoloper<br>Subscribe To My Channel For More Videos</p>
+        </div>
+        <img class="slide-land" src="~/Images/img3.jpg" style="width: 100%; height: 100%;">
+    </div>
+    <div class="myslide fadee">
+        <div class="txt">
+            <h1>IMAGE 4</h1>
+            <p>Web Devoloper<br>Subscribe To My Channel For More Videos</p>
+        </div>
+        <img class="slide-land" src="~/Images/img4.jpg" style="width: 100%; height: 100%;">
+    </div>
+    <div class="myslide fadee">
+        <div class="txt">
+            <h1>IMAGE 5</h1>
+            <p>Web Devoloper<br>Subscribe To My Channel For More Videos</p>
+        </div>
+        <img class="slide-land" src="~/Images/img5.jpg" style="width: 100%; height: 100%;">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <div class="dotsbox" style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+</div>
+<br />
+<div class="header-slidee">
+    <section id="teamm" class="lightt">
+        <h2>Feature <span>Courses</span></h2>
+        <span class="section-separator"></span>
+        <p>Lorem ipsum Dolor et reprehenderit laborum deserunt aliquip incididunt tempor id non.<br /> Lorem ipsum Fugiat anim labore cupidatat consequat non in sit dolore anim anim consequat nisi.</p>
+
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="testimonials-carousel-wrap">
+                    <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
+                    <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff; margin-bottom:-30px; "></i></div>
+                    <div class="testimonials-carousel">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                @foreach (Cours cours in Model.courseList)
+                                {
+                                    <div class="swiper-slide">
+                                        <div class="testi-item">
+                                            <div>
+                                                <div class="wrap animated" data-animate="fadeInDown">
+                                                    <div class="img-team">
+                                                        <img src="~/Uploads/@cours.Image_ID" alt="" class="img-circle">
+                                                    </div>
+                                                    <h3>@cours.Name</h3>
+                                                    <p>@cours.Description</p>
+                                                    <div class="card-footer">
+                                                        <a href="@Url.Action("Info", "Home", new { id = cours.ID})" class="btn btn-success">Find Out More!</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<br />
+<div class="header-slidee">
+    <section id="teamm" class="lightt">
+        <div class="breadcrumb-area bg-color">
+            <br />
+            <h2>Latest <span>Articles</span></h2>
+            <span class="section-separator"></span>
+            <p>Lorem ipsum Dolor et reprehenderit laborum deserunt aliquip incididunt tempor id non.<br /> Lorem ipsum Fugiat anim labore cupidatat consequat non in sit dolore anim anim consequat nisi.</p>
+            <br />
+            <div class="container">
+                @foreach (Article article in Model.articleList)
+                {
+                    <div>
+                        <div class="col-lg-4 col-md-6 mb-4" style="float:right;">
+                            <div class="axxa">
+                                <img class="imgcoNNt" src="~/Uploads/@article.Image_Article" />
+                                <div class="row">
+                                    <ul>
+                                        <li>
+                                            <a class="writer1" href="@Url.Action("Writer", "Articles", new { id = article.Writer_ID})">
+                                                @article.Writer.Name_Writer<i class="fas fa-user rgtspace-5"></i>
+                                            </a>
+                                            &nbsp;
+                                            <span class="writer1">
+                                                @article.CreationDate_Article<i class="far fa-clock rgtspace-5"></i>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <a href="@Url.Action("Content", "Articles", new { id = article.ID_Article})" class="name"><h4>@article.Name_Article</h4></a>
+                                    <div class="Discr">@article.Discript</div>
+
+                                </div>
+                                <div class="card-footer">
+                                    <a href="@Url.Action("Content", "Articles", new { id = article.ID_Article})" class="btn btn-success">أكمل القراءة</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+ <br />
+    </section>
+</div>
+<br />
+<br />
+<br />
+<div class="header-slidee">
+    <section id="teamm" class="lightt">
+        <h2>Our <span>Testimonial</span></h2>
+        <span class="section-separator"></span>
+        <p>Lorem ipsum Dolor et reprehenderit laborum deserunt aliquip incididunt tempor id non.<br /> Lorem ipsum Fugiat anim labore cupidatat consequat non in sit dolore anim anim consequat nisi.</p>
+        <br />
+        <div class="container">
+            <div class="testimonials-carousel-wrap">
+                <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
+                <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
+                <div class="testimonials-carousell">
+                    <div class="swiper-containerr">
+                        <div class="swiper-wrapper">
+                            @foreach (Gallery_Testimonial gallery_Testimonial in Model.testimonialList)
+                            {
+                                <div class="swiper-slide">
+                                    <div class="testi-item">
+                                        <div><img width="900" height="500" src="~/Uploads/@gallery_Testimonial.Testimonial_Image"></div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="header-slidee breadcrumb-area bg-color">
+    <section id="teamm" class="lightt">
+        <div class="breadcrumb-area bg-color">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="breadcrumb-title text-center">
+                        <h2>Payment <span>Methods</span></h2>
+                        <span class="section-separator"></span>
+                                <p>Lorem ipsum Dolor et reprehenderit laborum deserunt aliquip incididunt tempor id non.<br /> Lorem ipsum Fugiat anim labore cupidatat consequat non in sit dolore anim anim consequat nisi.</p>
+
+                    </div>
+                </div>
+            </div>
+<br />
+<div class="container">
+    <div class="row text-center" style="margin-top:10px; margin-bottom:20px;margin-left:125px; ">
+        <div class="col-lg-4 col-md-6 mb-4" style="width:300px; height:220px; margin-top:10px; margin-bottom:20px;">
+            <img style="width:200px; height:200px; margin-top:10px; margin-bottom:20px;" src="~/Images/bank.jpg" alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4" style="width:300px; height:220px; margin-top:10px; margin-bottom:20px;">
+            <img style="width:200px; height:200px; margin-top:10px; margin-bottom:20px;" src="~/Images/CIBCommon.png" alt=""><br />
+            <strong>ATM deposit: 100040077647</strong>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4" style="width:300px; height:220px; margin-top:10px; margin-bottom:20px;">
+            <img style="width:200px; height:200px; margin-top:10px; margin-bottom:20px;" src="~/Images/Epsn1-01.jpg" alt="">
+
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4" style="width:300px; height:220px; margin-top:10px; margin-bottom:20px;">
+            <img style="width:200px; height:200px; margin-top:10px; margin-bottom:20px;" src="~/Images/Smart Wallet.png" alt="">
+            <strong>01210746633</strong>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4" style="width:300px; height:220px; margin-top:10px; margin-bottom:20px;">
+            <img style="width:200px; height:200px; margin-top:10px; margin-bottom:20px;" src="~/Images/voda.jpeg" alt="">
+            <strong>01067925566</strong><br />
+            <strong>01063999114</strong>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4" style="width:300px; height:220px; margin-top:10px; margin-bottom:20px;">
+            <img style="width:200px; height:200px; margin-top:10px; margin-bottom:20px;" src="~/Images/Epsn-01.jpg" alt=""><br />
+            <strong>Pay at the headquarters</strong><br /><div>17 El Tayaran St, Rabaa Al Adaweyah, Nasr City</div>
+        </div>
+
+    </div>
+    <br /><br />
+
+</div>
+        </div>
+    </section>
+</div>
+@section scripts{
+    <script src="~/Scripts/jsfile.js"></script>
+    <script src="~/Scripts/scriptsTest.js"></script>
+}

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EPSN.Categories_Articles>
+
+@{
+    ViewBag.Title = "Category";
+}
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div>
+            <div class="col-lg-6 col-md-6 mb-4" style="float:right">
+                <div class="axa">
+                    <img class="imgcoNNt" src="~/Uploads/@item.Article.Image_Article" />
+                    <div class="row">
+                        <span class="writer1">
+                            @item.Article.Writer.Name_Writer<i class="far fa-user"></i>
+                        </span>
+                        &nbsp;
+                        <span class="writer1">
+                            @item.Article.CreationDate_Article<i class="far fa-calendar"></i>
+                        </span>
+                        <a href="@Url.Action("Content", "Articles", new { id = item.Article.ID_Article})" class="name"><h3>@item.Article.Name_Article</h3></a>
+                        <div class="Discr">@item.Article.Discript</div>
+                        <br /><br />
+                        <div class="card-footer">
+                            <a href="@Url.Action("Content", "Articles", new { id = item.Article.ID_Article})" class="btn btn-success" style="margin-bottom:-100px; border-radius:50px;">أكمل القراءة</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

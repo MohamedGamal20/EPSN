@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EPSN.Category_Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_ArticleCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image_ID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_ArticleCategory)
+        </td>
+        <td>
+            <img src="~/Uploads/@Html.DisplayFor(model => item.Image_ID)" class="thumbnail" style="width:100px; height:100px;" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_ArticleCategory }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_ArticleCategory }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_ArticleCategory })
+        </td>
+    </tr>
+}
+
+</table>

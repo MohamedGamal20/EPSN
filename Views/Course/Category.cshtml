@@ -1,0 +1,11 @@
+﻿@model IEnumerable<EPSN.Category>
+
+@foreach (var item in Model)
+{
+
+    <div>
+
+        <p><a href="@Url.Action("Course", "Course", new { id = item.ID})" style="color:#00a86a;">@Html.DisplayFor(modelItem => item.Name)</a></p>
+    </div>
+    <div class="divider" style="background:#00a86a"></div>
+}

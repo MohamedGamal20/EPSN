@@ -1,0 +1,1501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EpsnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="E_mail" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ID_Article" />
+          </Key>
+          <Property Name="ID_Article" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Article" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Discription_Article" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image_Article" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreationDate_Article" Type="datetime" Nullable="false" />
+          <Property Name="Writer_ID" Type="int" />
+          <Property Name="Discript" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Hometown" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Country" Type="nvarchar(max)" />
+          <Property Name="FirstName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="AddNumber" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Categories_Articles">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="Article_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" Nullable="false" />
+          <Property Name="Article_ID" Type="int" Nullable="false" />
+          <Property Name="Creationdate_Article" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Image_ID" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Category_Article">
+          <Key>
+            <PropertyRef Name="ID_ArticleCategory" />
+          </Key>
+          <Property Name="ID_ArticleCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_ArticleCategory" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image_ID" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Certification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_No" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Certification1" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course_Lessons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Order_Number" Type="int" />
+          <Property Name="PDF" Type="nvarchar(max)" />
+          <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Unit_Id" Type="int" Nullable="false" />
+          <Property Name="Group_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Course_units">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Category_Id" Type="int" Nullable="false" />
+          <Property Name="Image_ID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description_Details" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Discound" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courses_Name">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gallery_Image">
+          <Key>
+            <PropertyRef Name="ID_Image" />
+          </Key>
+          <Property Name="ID_Image" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gallery_Testimonial">
+          <Key>
+            <PropertyRef Name="ID_Testimonial" />
+          </Key>
+          <Property Name="ID_Testimonial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Testimonial_Image" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gallery_Video">
+          <Key>
+            <PropertyRef Name="ID_Video" />
+          </Key>
+          <Property Name="ID_Video" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Video" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Image_Group" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Course_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Source">
+          <Key>
+            <PropertyRef Name="Source_ID" />
+          </Key>
+          <Property Name="Source_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Source_Name" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="Source_Tag" Type="nvarchar" MaxLength="250" />
+          <Property Name="Article_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="e_mail" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Students_Groups">
+          <Key>
+            <PropertyRef Name="Group_Id" />
+            <PropertyRef Name="Student_Id" />
+          </Key>
+          <Property Name="Group_Id" Type="int" Nullable="false" />
+          <Property Name="Student_Id" Type="int" Nullable="false" />
+          <Property Name="Creation_date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Trainee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="E_mail" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Extra_Notes" Type="nvarchar(max)" />
+          <Property Name="CouresName_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Trainee_courses">
+          <Key>
+            <PropertyRef Name="Trainee_Id" />
+            <PropertyRef Name="Course_Id" />
+          </Key>
+          <Property Name="Trainee_Id" Type="int" Nullable="false" />
+          <Property Name="Course_Id" Type="int" Nullable="false" />
+          <Property Name="Registration_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="E_mail" Type="nvarchar" MaxLength="250" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Creation_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Trainer_Courses">
+          <Key>
+            <PropertyRef Name="Trainer_ID" />
+            <PropertyRef Name="Course_ID" />
+          </Key>
+          <Property Name="Trainer_ID" Type="int" Nullable="false" />
+          <Property Name="Course_ID" Type="int" Nullable="false" />
+          <Property Name="Creation_date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Writer">
+          <Key>
+            <PropertyRef Name="ID_Writer" />
+          </Key>
+          <Property Name="ID_Writer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Writer" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description_Writer" Type="nvarchar(max)" />
+          <Property Name="Image_Writer" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Article_Writer">
+          <End Role="Writer" Type="Self.Writer" Multiplicity="0..1" />
+          <End Role="Article" Type="Self.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Writer">
+              <PropertyRef Name="ID_Writer" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="Writer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Articles_Article">
+          <End Role="Article" Type="Self.Article" Multiplicity="1" />
+          <End Role="Categories_Articles" Type="Self.Categories_Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="ID_Article" />
+            </Principal>
+            <Dependent Role="Categories_Articles">
+              <PropertyRef Name="Article_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Articles_Category_Articles_ID">
+          <End Role="Category_Article" Type="Self.Category_Article" Multiplicity="1" />
+          <End Role="Categories_Articles" Type="Self.Categories_Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Article">
+              <PropertyRef Name="ID_ArticleCategory" />
+            </Principal>
+            <Dependent Role="Categories_Articles">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Lessons_Course_units">
+          <End Role="Course_units" Type="Self.Course_units" Multiplicity="1" />
+          <End Role="Course_Lessons" Type="Self.Course_Lessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course_units">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course_Lessons">
+              <PropertyRef Name="Unit_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Lessons_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Course_Lessons" Type="Self.Course_Lessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course_Lessons">
+              <PropertyRef Name="Group_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courses_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Course_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Source_Article">
+          <End Role="Article" Type="Self.Article" Multiplicity="1" />
+          <End Role="Source" Type="Self.Source" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="ID_Article" />
+            </Principal>
+            <Dependent Role="Source">
+              <PropertyRef Name="Article_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Groups_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="1" />
+          <End Role="Students_Groups" Type="Self.Students_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students_Groups">
+              <PropertyRef Name="Group_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Groups_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Students_Groups" Type="Self.Students_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students_Groups">
+              <PropertyRef Name="Student_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainee_courses_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="Trainee_courses" Type="Self.Trainee_courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainee_courses">
+              <PropertyRef Name="Course_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainee_Courses_Name">
+          <End Role="Courses_Name" Type="Self.Courses_Name" Multiplicity="0..1" />
+          <End Role="Trainee" Type="Self.Trainee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses_Name">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainee">
+              <PropertyRef Name="CouresName_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainee_courses_Trainee">
+          <End Role="Trainee" Type="Self.Trainee" Multiplicity="1" />
+          <End Role="Trainee_courses" Type="Self.Trainee_courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainee_courses">
+              <PropertyRef Name="Trainee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainer_Courses_Courses">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+          <End Role="Trainer_Courses" Type="Self.Trainer_Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainer_Courses">
+              <PropertyRef Name="Course_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainer_Courses_Trainer">
+          <End Role="Trainer" Type="Self.Trainer" Multiplicity="1" />
+          <End Role="Trainer_Courses" Type="Self.Trainer_Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainer_Courses">
+              <PropertyRef Name="Trainer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EpsnModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories_Articles" EntityType="Self.Categories_Articles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category_Article" EntityType="Self.Category_Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Certification" EntityType="Self.Certification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course_Lessons" EntityType="Self.Course_Lessons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course_units" EntityType="Self.Course_units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses_Name" EntityType="Self.Courses_Name" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery_Image" EntityType="Self.Gallery_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery_Testimonial" EntityType="Self.Gallery_Testimonial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery_Video" EntityType="Self.Gallery_Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Source" EntityType="Self.Source" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students_Groups" EntityType="Self.Students_Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainee" EntityType="Self.Trainee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainee_courses" EntityType="Self.Trainee_courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trainer_Courses" EntityType="Self.Trainer_Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Writer" EntityType="Self.Writer" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Article_Writer" Association="Self.FK_Article_Writer">
+            <End Role="Writer" EntitySet="Writer" />
+            <End Role="Article" EntitySet="Article" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Articles_Article" Association="Self.FK_Categories_Articles_Article">
+            <End Role="Article" EntitySet="Article" />
+            <End Role="Categories_Articles" EntitySet="Categories_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Articles_Category_Articles_ID" Association="Self.FK_Category_Articles_Category_Articles_ID">
+            <End Role="Category_Article" EntitySet="Category_Article" />
+            <End Role="Categories_Articles" EntitySet="Categories_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Lessons_Course_units" Association="Self.FK_Course_Lessons_Course_units">
+            <End Role="Course_units" EntitySet="Course_units" />
+            <End Role="Course_Lessons" EntitySet="Course_Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Lessons_Groups" Association="Self.FK_Course_Lessons_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Course_Lessons" EntitySet="Course_Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courses_Category" Association="Self.FK_Courses_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Courses" Association="Self.FK_Groups_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Source_Article" Association="Self.FK_Source_Article">
+            <End Role="Article" EntitySet="Article" />
+            <End Role="Source" EntitySet="Source" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Groups_Groups" Association="Self.FK_Students_Groups_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students_Groups" EntitySet="Students_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Groups_Students" Association="Self.FK_Students_Groups_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Students_Groups" EntitySet="Students_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainee_courses_Courses" Association="Self.FK_Trainee_courses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Trainee_courses" EntitySet="Trainee_courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainee_Courses_Name" Association="Self.FK_Trainee_Courses_Name">
+            <End Role="Courses_Name" EntitySet="Courses_Name" />
+            <End Role="Trainee" EntitySet="Trainee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainee_courses_Trainee" Association="Self.FK_Trainee_courses_Trainee">
+            <End Role="Trainee" EntitySet="Trainee" />
+            <End Role="Trainee_courses" EntitySet="Trainee_courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainer_Courses_Courses" Association="Self.FK_Trainer_Courses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Trainer_Courses" EntitySet="Trainer_Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainer_Courses_Trainer" Association="Self.FK_Trainer_Courses_Trainer">
+            <End Role="Trainer" EntitySet="Trainer" />
+            <End Role="Trainer_Courses" EntitySet="Trainer_Courses" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EpsnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ID_Article" />
+          </Key>
+          <Property Name="ID_Article" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Article" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Discription_Article" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image_Article" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreationDate_Article" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Writer_ID" Type="Int32" />
+          <Property Name="Discript" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Writer" Relationship="Self.FK_Article_Writer" FromRole="Article" ToRole="Writer" />
+          <NavigationProperty Name="Categories_Articles" Relationship="Self.FK_Categories_Articles_Article" FromRole="Article" ToRole="Categories_Articles" />
+          <NavigationProperty Name="Sources" Relationship="Self.FK_Source_Article" FromRole="Article" ToRole="Source" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hometown" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Categories_Articles">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="Article_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="Article_ID" Type="Int32" Nullable="false" />
+          <Property Name="Creationdate_Article" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="Self.FK_Categories_Articles_Article" FromRole="Categories_Articles" ToRole="Article" />
+          <NavigationProperty Name="Category_Article" Relationship="EpsnModel.FK_Category_Articles_Category_Articles_ID" FromRole="Categories_Articles" ToRole="Category_Article" />
+        </EntityType>
+        <EntityType Name="Certification">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_No" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Certification1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course_Lessons">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Order_Number" Type="Int32" />
+          <Property Name="PDF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Unit_Id" Type="Int32" Nullable="false" />
+          <Property Name="Group_Id" Type="Int32" />
+          <NavigationProperty Name="Course_units" Relationship="Self.FK_Course_Lessons_Course_units" FromRole="Course_Lessons" ToRole="Course_units" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Course_Lessons_Groups" FromRole="Course_Lessons" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="Course_units">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Course_Lessons" Relationship="Self.FK_Course_Lessons_Course_units" FromRole="Course_units" ToRole="Course_Lessons" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Category_Id" Type="Int32" Nullable="false" />
+          <Property Name="Image_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Discound" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_Courses" FromRole="Courses" ToRole="Groups" />
+          <NavigationProperty Name="Trainee_courses" Relationship="Self.FK_Trainee_courses_Courses" FromRole="Courses" ToRole="Trainee_courses" />
+          <NavigationProperty Name="Trainer_Courses" Relationship="Self.FK_Trainer_Courses_Courses" FromRole="Courses" ToRole="Trainer_Courses" />
+          <NavigationProperty Name="Category" Relationship="EpsnModel.FK_Courses_Category" FromRole="Cours" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Courses_Name">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Trainees" Relationship="Self.FK_Trainee_Courses_Name" FromRole="Courses_Name" ToRole="Trainee" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image_Group" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Course_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Course_Lessons" Relationship="Self.FK_Course_Lessons_Groups" FromRole="Groups" ToRole="Course_Lessons" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_Groups_Courses" FromRole="Groups" ToRole="Courses" />
+          <NavigationProperty Name="Students_Groups" Relationship="Self.FK_Students_Groups_Groups" FromRole="Groups" ToRole="Students_Groups" />
+        </EntityType>
+        <EntityType Name="Source">
+          <Key>
+            <PropertyRef Name="Source_ID" />
+          </Key>
+          <Property Name="Source_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Source_Name" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Source_Tag" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Article_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="Self.FK_Source_Article" FromRole="Source" ToRole="Article" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="e_mail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Students_Groups" Relationship="Self.FK_Students_Groups_Students" FromRole="Students" ToRole="Students_Groups" />
+        </EntityType>
+        <EntityType Name="Students_Groups">
+          <Key>
+            <PropertyRef Name="Group_Id" />
+            <PropertyRef Name="Student_Id" />
+          </Key>
+          <Property Name="Group_Id" Type="Int32" Nullable="false" />
+          <Property Name="Student_Id" Type="Int32" Nullable="false" />
+          <Property Name="Creation_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Students_Groups_Groups" FromRole="Students_Groups" ToRole="Groups" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Students_Groups_Students" FromRole="Students_Groups" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Trainee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Country" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Extra_Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CouresName_Id" Type="Int32" />
+          <NavigationProperty Name="Courses_Name" Relationship="Self.FK_Trainee_Courses_Name" FromRole="Trainee" ToRole="Courses_Name" />
+          <NavigationProperty Name="Trainee_courses" Relationship="Self.FK_Trainee_courses_Trainee" FromRole="Trainee" ToRole="Trainee_courses" />
+        </EntityType>
+        <EntityType Name="Trainee_courses">
+          <Key>
+            <PropertyRef Name="Trainee_Id" />
+            <PropertyRef Name="Course_Id" />
+          </Key>
+          <Property Name="Trainee_Id" Type="Int32" Nullable="false" />
+          <Property Name="Course_Id" Type="Int32" Nullable="false" />
+          <Property Name="Registration_date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_Trainee_courses_Courses" FromRole="Trainee_courses" ToRole="Courses" />
+          <NavigationProperty Name="Trainee" Relationship="Self.FK_Trainee_courses_Trainee" FromRole="Trainee_courses" ToRole="Trainee" />
+        </EntityType>
+        <EntityType Name="Trainer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Creation_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Trainer_Courses" Relationship="Self.FK_Trainer_Courses_Trainer" FromRole="Trainer" ToRole="Trainer_Courses" />
+        </EntityType>
+        <EntityType Name="Trainer_Courses">
+          <Key>
+            <PropertyRef Name="Trainer_ID" />
+            <PropertyRef Name="Course_ID" />
+          </Key>
+          <Property Name="Trainer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Course_ID" Type="Int32" Nullable="false" />
+          <Property Name="Creation_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cours" Relationship="Self.FK_Trainer_Courses_Courses" FromRole="Trainer_Courses" ToRole="Courses" />
+          <NavigationProperty Name="Trainer" Relationship="Self.FK_Trainer_Courses_Trainer" FromRole="Trainer_Courses" ToRole="Trainer" />
+        </EntityType>
+        <EntityType Name="Writer">
+          <Key>
+            <PropertyRef Name="ID_Writer" />
+          </Key>
+          <Property Name="ID_Writer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Writer" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description_Writer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image_Writer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Articles" Relationship="Self.FK_Article_Writer" FromRole="Writer" ToRole="Article" />
+        </EntityType>
+        <Association Name="FK_Article_Writer">
+          <End Role="Writer" Type="Self.Writer" Multiplicity="0..1" />
+          <End Role="Article" Type="Self.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Writer">
+              <PropertyRef Name="ID_Writer" />
+            </Principal>
+            <Dependent Role="Article">
+              <PropertyRef Name="Writer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Articles_Article">
+          <End Role="Article" Type="Self.Article" Multiplicity="1" />
+          <End Role="Categories_Articles" Type="Self.Categories_Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="ID_Article" />
+            </Principal>
+            <Dependent Role="Categories_Articles">
+              <PropertyRef Name="Article_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Source_Article">
+          <End Role="Article" Type="Self.Article" Multiplicity="1" />
+          <End Role="Source" Type="Self.Source" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Article">
+              <PropertyRef Name="ID_Article" />
+            </Principal>
+            <Dependent Role="Source">
+              <PropertyRef Name="Article_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Lessons_Course_units">
+          <End Role="Course_units" Type="Self.Course_units" Multiplicity="1" />
+          <End Role="Course_Lessons" Type="Self.Course_Lessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course_units">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course_Lessons">
+              <PropertyRef Name="Unit_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Course_Lessons_Groups">
+          <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Course_Lessons" Type="Self.Course_Lessons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Course_Lessons">
+              <PropertyRef Name="Group_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Course_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainee_courses_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+          <End Role="Trainee_courses" Type="Self.Trainee_courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainee_courses">
+              <PropertyRef Name="Course_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainer_Courses_Courses">
+          <End Role="Courses" Type="Self.Cours" Multiplicity="1" />
+          <End Role="Trainer_Courses" Type="Self.Trainer_Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainer_Courses">
+              <PropertyRef Name="Course_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainee_Courses_Name">
+          <End Role="Courses_Name" Type="Self.Courses_Name" Multiplicity="0..1" />
+          <End Role="Trainee" Type="Self.Trainee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses_Name">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainee">
+              <PropertyRef Name="CouresName_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Groups_Groups">
+          <End Role="Groups" Type="Self.Group" Multiplicity="1" />
+          <End Role="Students_Groups" Type="Self.Students_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students_Groups">
+              <PropertyRef Name="Group_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Groups_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="1" />
+          <End Role="Students_Groups" Type="Self.Students_Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Students_Groups">
+              <PropertyRef Name="Student_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainee_courses_Trainee">
+          <End Role="Trainee" Type="Self.Trainee" Multiplicity="1" />
+          <End Role="Trainee_courses" Type="Self.Trainee_courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainee_courses">
+              <PropertyRef Name="Trainee_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trainer_Courses_Trainer">
+          <End Role="Trainer" Type="Self.Trainer" Multiplicity="1" />
+          <End Role="Trainer_Courses" Type="Self.Trainer_Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trainer">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Trainer_Courses">
+              <PropertyRef Name="Trainer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="CoursesDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Articles" EntityType="Self.Article" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Categories_Articles" EntityType="Self.Categories_Articles" />
+          <EntitySet Name="Certifications" EntityType="Self.Certification" />
+          <EntitySet Name="Course_Lessons" EntityType="Self.Course_Lessons" />
+          <EntitySet Name="Course_units" EntityType="Self.Course_units" />
+          <EntitySet Name="Courses" EntityType="Self.Cours" />
+          <EntitySet Name="Courses_Name" EntityType="Self.Courses_Name" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Sources" EntityType="Self.Source" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Students_Groups" EntityType="Self.Students_Groups" />
+          <EntitySet Name="Trainees" EntityType="Self.Trainee" />
+          <EntitySet Name="Trainee_courses" EntityType="Self.Trainee_courses" />
+          <EntitySet Name="Trainers" EntityType="Self.Trainer" />
+          <EntitySet Name="Trainer_Courses" EntityType="Self.Trainer_Courses" />
+          <EntitySet Name="Writers" EntityType="Self.Writer" />
+          <AssociationSet Name="FK_Article_Writer" Association="Self.FK_Article_Writer">
+            <End Role="Writer" EntitySet="Writers" />
+            <End Role="Article" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Articles_Article" Association="Self.FK_Categories_Articles_Article">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Categories_Articles" EntitySet="Categories_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Source_Article" Association="Self.FK_Source_Article">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="Source" EntitySet="Sources" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Lessons_Course_units" Association="Self.FK_Course_Lessons_Course_units">
+            <End Role="Course_units" EntitySet="Course_units" />
+            <End Role="Course_Lessons" EntitySet="Course_Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Course_Lessons_Groups" Association="Self.FK_Course_Lessons_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Course_Lessons" EntitySet="Course_Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Courses" Association="Self.FK_Groups_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainee_courses_Courses" Association="Self.FK_Trainee_courses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Trainee_courses" EntitySet="Trainee_courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainer_Courses_Courses" Association="Self.FK_Trainer_Courses_Courses">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Trainer_Courses" EntitySet="Trainer_Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainee_Courses_Name" Association="Self.FK_Trainee_Courses_Name">
+            <End Role="Courses_Name" EntitySet="Courses_Name" />
+            <End Role="Trainee" EntitySet="Trainees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Groups_Groups" Association="Self.FK_Students_Groups_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Students_Groups" EntitySet="Students_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Groups_Students" Association="Self.FK_Students_Groups_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Students_Groups" EntitySet="Students_Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainee_courses_Trainee" Association="Self.FK_Trainee_courses_Trainee">
+            <End Role="Trainee" EntitySet="Trainees" />
+            <End Role="Trainee_courses" EntitySet="Trainee_courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trainer_Courses_Trainer" Association="Self.FK_Trainer_Courses_Trainer">
+            <End Role="Trainer" EntitySet="Trainers" />
+            <End Role="Trainer_Courses" EntitySet="Trainer_Courses" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="EpsnModel.Category" />
+          <EntitySet Name="Category_Article" EntityType="EpsnModel.Category_Article" />
+          <AssociationSet Name="FK_Category_Articles_Category_Articles_ID" Association="EpsnModel.FK_Category_Articles_Category_Articles_ID">
+            <End Role="Category_Article" EntitySet="Category_Article" />
+            <End Role="Categories_Articles" EntitySet="Categories_Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Courses_Category" Association="EpsnModel.FK_Courses_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Cours" EntitySet="Courses" />
+          </AssociationSet>
+          <EntitySet Name="Gallery_Image" EntityType="EpsnModel.Gallery_Image" />
+          <EntitySet Name="Gallery_Testimonial" EntityType="EpsnModel.Gallery_Testimonial" />
+          <EntitySet Name="Gallery_Video" EntityType="EpsnModel.Gallery_Video" />
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Image_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Courses" Relationship="EpsnModel.FK_Courses_Category" FromRole="Category" ToRole="Cours" />
+        </EntityType>
+        <EntityType Name="Category_Article">
+          <Key>
+            <PropertyRef Name="ID_ArticleCategory" />
+          </Key>
+          <Property Name="ID_ArticleCategory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_ArticleCategory" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image_ID" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categories_Articles" Relationship="EpsnModel.FK_Category_Articles_Category_Articles_ID" FromRole="Category_Article" ToRole="Categories_Articles" />
+        </EntityType>
+        <Association Name="FK_Category_Articles_Category_Articles_ID">
+          <End Type="EpsnModel.Category_Article" Role="Category_Article" Multiplicity="1" />
+          <End Type="EpsnModel.Categories_Articles" Role="Categories_Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category_Article">
+              <PropertyRef Name="ID_ArticleCategory" />
+            </Principal>
+            <Dependent Role="Categories_Articles">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Courses_Category">
+          <End Type="EpsnModel.Category" Role="Category" Multiplicity="1" />
+          <End Type="EpsnModel.Cours" Role="Cours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cours">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Gallery_Image">
+          <Key>
+            <PropertyRef Name="ID_Image" />
+          </Key>
+          <Property Name="ID_Image" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Gallery_Testimonial">
+          <Key>
+            <PropertyRef Name="ID_Testimonial" />
+          </Key>
+          <Property Name="ID_Testimonial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Testimonial_Image" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Gallery_Video">
+          <Key>
+            <PropertyRef Name="ID_Video" />
+          </Key>
+          <Property Name="ID_Video" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Video" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EpsnModelStoreContainer" CdmEntityContainer="CoursesDBEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="EpsnModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="EpsnModel.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="ID_Article" ColumnName="ID_Article" />
+                <ScalarProperty Name="Name_Article" ColumnName="Name_Article" />
+                <ScalarProperty Name="Discription_Article" ColumnName="Discription_Article" />
+                <ScalarProperty Name="Image_Article" ColumnName="Image_Article" />
+                <ScalarProperty Name="CreationDate_Article" ColumnName="CreationDate_Article" />
+                <ScalarProperty Name="Writer_ID" ColumnName="Writer_ID" />
+                <ScalarProperty Name="Discript" ColumnName="Discript" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="EpsnModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="EpsnModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="EpsnModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="EpsnModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Hometown" ColumnName="Hometown" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="AddNumber" ColumnName="AddNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories_Articles">
+            <EntityTypeMapping TypeName="EpsnModel.Categories_Articles">
+              <MappingFragment StoreEntitySet="Categories_Articles">
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="Article_ID" ColumnName="Article_ID" />
+                <ScalarProperty Name="Creationdate_Article" ColumnName="Creationdate_Article" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Certifications">
+            <EntityTypeMapping TypeName="EpsnModel.Certification">
+              <MappingFragment StoreEntitySet="Certification">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_No" ColumnName="ID_No" />
+                <ScalarProperty Name="Certification1" ColumnName="Certification1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course_Lessons">
+            <EntityTypeMapping TypeName="EpsnModel.Course_Lessons">
+              <MappingFragment StoreEntitySet="Course_Lessons">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Order_Number" ColumnName="Order_Number" />
+                <ScalarProperty Name="PDF" ColumnName="PDF" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Unit_Id" ColumnName="Unit_Id" />
+                <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Course_units">
+            <EntityTypeMapping TypeName="EpsnModel.Course_units">
+              <MappingFragment StoreEntitySet="Course_units">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="EpsnModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+                <ScalarProperty Name="Description_Details" ColumnName="Description_Details" />
+                <ScalarProperty Name="Discound" ColumnName="Discound" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses_Name">
+            <EntityTypeMapping TypeName="EpsnModel.Courses_Name">
+              <MappingFragment StoreEntitySet="Courses_Name">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="EpsnModel.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image_Group" ColumnName="Image_Group" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sources">
+            <EntityTypeMapping TypeName="EpsnModel.Source">
+              <MappingFragment StoreEntitySet="Source">
+                <ScalarProperty Name="Source_ID" ColumnName="Source_ID" />
+                <ScalarProperty Name="Source_Name" ColumnName="Source_Name" />
+                <ScalarProperty Name="Source_Tag" ColumnName="Source_Tag" />
+                <ScalarProperty Name="Article_Id" ColumnName="Article_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="EpsnModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students_Groups">
+            <EntityTypeMapping TypeName="EpsnModel.Students_Groups">
+              <MappingFragment StoreEntitySet="Students_Groups">
+                <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+                <ScalarProperty Name="Student_Id" ColumnName="Student_Id" />
+                <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainees">
+            <EntityTypeMapping TypeName="EpsnModel.Trainee">
+              <MappingFragment StoreEntitySet="Trainee">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Extra_Notes" ColumnName="Extra_Notes" />
+                <ScalarProperty Name="CouresName_Id" ColumnName="CouresName_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainee_courses">
+            <EntityTypeMapping TypeName="EpsnModel.Trainee_courses">
+              <MappingFragment StoreEntitySet="Trainee_courses">
+                <ScalarProperty Name="Trainee_Id" ColumnName="Trainee_Id" />
+                <ScalarProperty Name="Course_Id" ColumnName="Course_Id" />
+                <ScalarProperty Name="Registration_date" ColumnName="Registration_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainers">
+            <EntityTypeMapping TypeName="EpsnModel.Trainer">
+              <MappingFragment StoreEntitySet="Trainer">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="E_mail" ColumnName="E_mail" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainer_Courses">
+            <EntityTypeMapping TypeName="EpsnModel.Trainer_Courses">
+              <MappingFragment StoreEntitySet="Trainer_Courses">
+                <ScalarProperty Name="Trainer_ID" ColumnName="Trainer_ID" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Writers">
+            <EntityTypeMapping TypeName="EpsnModel.Writer">
+              <MappingFragment StoreEntitySet="Writer">
+                <ScalarProperty Name="ID_Writer" ColumnName="ID_Writer" />
+                <ScalarProperty Name="Name_Writer" ColumnName="Name_Writer" />
+                <ScalarProperty Name="Description_Writer" ColumnName="Description_Writer" />
+                <ScalarProperty Name="Image_Writer" ColumnName="Image_Writer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="EpsnModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="EpsnModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category_Article">
+            <EntityTypeMapping TypeName="EpsnModel.Category_Article">
+              <MappingFragment StoreEntitySet="Category_Article">
+                <ScalarProperty Name="Image_ID" ColumnName="Image_ID" />
+                <ScalarProperty Name="Name_ArticleCategory" ColumnName="Name_ArticleCategory" />
+                <ScalarProperty Name="ID_ArticleCategory" ColumnName="ID_ArticleCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallery_Image">
+            <EntityTypeMapping TypeName="EpsnModel.Gallery_Image">
+              <MappingFragment StoreEntitySet="Gallery_Image">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ID_Image" ColumnName="ID_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallery_Testimonial">
+            <EntityTypeMapping TypeName="EpsnModel.Gallery_Testimonial">
+              <MappingFragment StoreEntitySet="Gallery_Testimonial">
+                <ScalarProperty Name="Testimonial_Image" ColumnName="Testimonial_Image" />
+                <ScalarProperty Name="ID_Testimonial" ColumnName="ID_Testimonial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gallery_Video">
+            <EntityTypeMapping TypeName="EpsnModel.Gallery_Video">
+              <MappingFragment StoreEntitySet="Gallery_Video">
+                <ScalarProperty Name="Video" ColumnName="Video" />
+                <ScalarProperty Name="ID_Video" ColumnName="ID_Video" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

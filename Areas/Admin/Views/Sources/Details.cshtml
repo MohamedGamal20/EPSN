@@ -1,0 +1,42 @@
+﻿@model EPSN.Source
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Source</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Source_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source_Tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source_Tag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Article.Name_Article)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Article.Name_Article)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Source_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

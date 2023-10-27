@@ -1,0 +1,47 @@
+﻿@model IEnumerable<EPSN.Article>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="breadcrumb-area bg-color ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-title text-center">
+                    <h1>Articles</h1>
+                    <div class="breadcrumb-menu">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+@foreach (var item in Model)
+{
+<div>
+    <div class="col-lg-4 col-md-6 mb-4"style="float:right;">
+        <div class="axa">
+            <img class="imgcoNNt" src="~/Uploads/@item.Image_Article" />
+            <div class="row">
+                <ul>
+                    <li>
+                        <a class="writer1" href="@Url.Action("Writer", "Articles", new { id = item.Writer_ID})">
+                            @item.Writer.Name_Writer<i class="fas fa-user rgtspace-5"></i>
+                        </a>
+                        &nbsp;
+                        <span class="writer1">
+                            @item.CreationDate_Article<i class="far fa-clock rgtspace-5"></i>
+                        </span>
+                    </li>
+                </ul>
+                <a href="@Url.Action("Content", "Articles", new { id = item.ID_Article})" class="name"><h4>@item.Name_Article</h4></a>
+                <div class="Discr">@item.Discript</div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Content", "Articles", new { id = item.ID_Article})" class="btn btn-success">أكمل القراءة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<EPSN.Gallery_Video>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="breadcrumb-area bg-color ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-title text-center">
+                    <h1>Video of the gallery</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header-slidee">
+    <section id="teamm" class="lightt">
+        <div class="container">
+            <div class="testimonials-carousel-wrap">
+                <div class="listing-carousel-button listing-carousel-button-next"><i class="fa fa-caret-right" style="color: #fff"></i></div>
+                <div class="listing-carousel-button listing-carousel-button-prev"><i class="fa fa-caret-left" style="color: #fff"></i></div>
+                <div class="testimonials-carousell">
+                    <div class="swiper-containerr">
+                        <div class="swiper-wrapper">
+                            @foreach (var item in Model)
+                            {
+                                <div class="swiper-slide">
+                                    <div class="testi-item">
+                                        <iframe src="@item.Video" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@section scripts{
+    <script src="~/Scripts/jsfile.js"></script>
+    <script src="~/Scripts/scriptsTest.js"></script>
+}

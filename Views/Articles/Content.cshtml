@@ -1,0 +1,48 @@
+﻿@model EPSN.Article
+
+@{
+    ViewBag.Title = "Content";
+}
+<div class="container" style="margin-top:110px">
+    @foreach (var item in Model.Categories_Articles)
+    {
+        <div style="margin-left:auto;">
+            <div class="cat">@item.Category_Article.Name_ArticleCategory</div>
+        </div>
+    }
+    <div class="row">
+        <h1 class="name">@Model.Name_Article</h1>
+    </div>
+    <div class="row">
+        <ul>
+            <li>
+                    <a class="writer1" href="@Url.Action("Writer", "Articles", new { id = Model.Writer_ID})">
+                        @Model.Writer.Name_Writer<i class="fas fa-user rgtspace-5"></i>
+                    </a>
+                &nbsp;
+                <span class="writer1">
+                    @Model.CreationDate_Article<i class="far fa-clock rgtspace-5"></i>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div><img src="~/Uploads/@Model.Image_Article" alt="" class="imgcont"></div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="Discr">@Html.Raw(HttpUtility.HtmlDecode(@Model.Discription_Article).ToString())</div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="post-bottom-meta-title">
+            :مصادر  <i class="far fa-share-square"></i>
+        </div>
+        @foreach (var item in Model.Sources)
+        {
+            <div class="sourc">
+                <a href="@item.Source_Name" target="_blank">@item.Source_Tag</a>
+            </div>
+        }
+    </div>
+</div>

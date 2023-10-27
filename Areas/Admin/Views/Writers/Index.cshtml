@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EPSN.Writer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name_Writer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description_Writer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image_Writer)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name_Writer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description_Writer)
+        </td>
+        <td>
+            <img src="~/Uploads/@Html.DisplayFor(model => item.Image_Writer)" class="thumbnail" style="width:100px; height:100px;" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Writer }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Writer }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Writer })
+        </td>
+    </tr>
+}
+
+</table>

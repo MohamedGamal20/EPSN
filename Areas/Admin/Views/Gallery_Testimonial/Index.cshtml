@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EPSN.Gallery_Testimonial>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Testimonial_Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Uploads/@Html.DisplayFor(model => item.Testimonial_Image)" class="thumbnail" style="width:100px; height:100px;" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Testimonial }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Testimonial }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Testimonial })
+        </td>
+    </tr>
+}
+
+</table>

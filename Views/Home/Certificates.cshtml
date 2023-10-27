@@ -1,0 +1,47 @@
+﻿@model IEnumerable<EPSN.Certification>
+<div class="breadcrumb-area bg-color ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-title text-center">
+                    <h1>Certificate Validation</h1>
+                    <div class="breadcrumb-menu">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("Certificates", "Home", FormMethod.Get))
+{
+    <div class="blog-left-sidebar-area ptb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <form id="search" method="POST" action="/certificate-validation">
+                        <input type="text" name="searching" placeholder="Put the ID Code given to you">
+                        <button>Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="container">
+
+    @if (Model.Count() == 0)
+    {
+        <div colspan="3" style="color:red">
+            NO Match Any Document
+        </div>
+    }
+    else if (Model.Count() < 2)
+    {
+        foreach (var item in Model)
+        {
+            <div>
+                <img  src="~/Uploads/@Html.DisplayFor(model => item.Certification1)" class="thumbnail" style="width:900px; height:400px; margin:auto" />
+            </div>
+        }
+    }
+    </div>

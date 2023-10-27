@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EPSN.Cours>
+
+
+<div class="breadcrumb-area bg-color ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="breadcrumb-title text-center">
+                    <h1>Courses</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row text-center" style="margin-top:10px; margin-bottom:20px;">
+    <div class="container">
+        @foreach (var subItem in Model)
+        {
+            <div class="col-lg-3 col-md-6 mb-4" style="margin-bottom:20px;">
+                <div class="card h-100">
+                    <img class="card-img-top" style="width:300px; height:150px" src="~/Uploads/@subItem.Image_ID" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">@subItem.Name</h4>
+                        <p class="card-text">@subItem.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="@Url.Action("Info", "Home", new { id = subItem.ID})" class="btn btn-primary">Find Out More!</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

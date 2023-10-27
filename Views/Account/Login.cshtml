@@ -1,0 +1,53 @@
+﻿@using EPSN.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+<div class="imag">
+    <div class="container">
+
+        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h1>Material Login Form</h1>
+            <div class=" w3l-login-form">
+                <h2 class="h22">Login Here</h2>
+                <form action="#" method="POST">
+                    <div class=" w3l-form-group">
+                        <label>Username:</label>
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        <div class="group">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-fill" style="color:green; margin-top:5px;" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                            </svg>
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class=" w3l-form-group">
+                        <label>Password:</label>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        <div class="group">
+                            <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-lock-fill" style="color:green; margin-top:5px;" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.5 9a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V9z" />
+                                <path fill-rule="evenodd" d="M4.5 4a3.5 3.5 0 1 1 7 0v3h-1V4a2.5 2.5 0 0 0-5 0v3h-1V4z" />
+                            </svg>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="forgot">
+                        @Html.ValidationMessageFor(m => m.RememberMe, "", new { @class = "text-danger" })
+                        <a href="~/Account/ForgotPassword">Forgot Password?</a>
+                        <p><input type="checkbox">Remember Me</p>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+                <p class=" w3l-register-p">Don't have an account?<a href="~/Account/Register" class="register"> Register</a></p>
+            </div>
+        }
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

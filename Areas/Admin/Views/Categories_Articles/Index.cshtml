@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EPSN.Categories_Articles>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Creationdate_Article)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Article.Name_Article)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category_Article.Name_ArticleCategory)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Creationdate_Article)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Article.Name_Article)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category_Article.Name_ArticleCategory)
+        </td>
+
+    </tr>
+}
+
+</table>

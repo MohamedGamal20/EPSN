@@ -1,0 +1,72 @@
+﻿@model EPSN.Article
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Article</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name_Article)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name_Article)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discription_Article)
+        </dt>
+
+        <dd>
+            @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.Discription_Article).ToString()))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Article)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(model => model.Image_Article)" class="thumbnail" style="width:100px; height:100px;" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate_Article)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate_Article)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discript)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discript)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Writer.Name_Writer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Writer.Name_Writer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

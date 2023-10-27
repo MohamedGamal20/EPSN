@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>EPSN</title>
+    <link href="~/Images/Epsn3-01-011.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/Content/style1.css" />
+    <link href="~/Content/styleRegister.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/heroic-features.css" rel="stylesheet">
+    <link href="~/build/css/intlTelInput.css" rel="stylesheet" />
+    <link href="~/build/css/demo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="~/Content/stylelogin.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/styleArticles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css" />
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/cssfile.css">
+    <link rel="stylesheet" href="~/Content/style5.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/style9.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top " style="height:100px; border-color: none; border: none;">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle col-xs-1 " style="border:none; background:white;margin-top:35px;" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar" style="background:black"></span>
+                    <span class="icon-bar"style="background:black"></span>
+                    <span class="icon-bar"style="background:black"></span>
+                </button>
+                <a href="~/Home" class="navbar-brand  ">
+                    <img src="~/Images/Epsn3-01-01.png" class="logo" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="margin-top:10px;">@Html.ActionLink("Home", "index", "Home", new { area = "" }, null)</li>
+                    <li class="nav-item dropdown">
+                        <a style="margin-top:10px;" class="navbar-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Courses
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @{
+                                Html.RenderAction("Category", "Course");
+                            }
+                        </div>
+                    </li>
+                    <li style="margin-top:10px;">@Html.ActionLink("Articles", "index", "Articles", new { area = "" }, null)</li>
+                    <li class="nav-item dropdown">
+                        <a style="margin-top:10px;" class="navbar-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Gallery
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div>
+                                <p><a href="~/Gallery_Image/Index" style="color:#00a86a;">Image</a></p>
+                            </div>
+                            <div class="divider" style="background:#00a86a"></div>
+                            <div>
+                                <p><a href="~/Gallery_Video/Index" style="color:#00a86a;">Video</a></p>
+                            </div>
+                            <div class="divider" style="background:#00a86a"></div>
+                            <div>
+                                <p><a href="~/Gallery_Testimonial/Index" style="color:#00a86a;">Testimonial</a></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li style="margin-top: 10px;">@Html.ActionLink("About", "Aboutus", "Home", new { area = "" }, null)</li>
+                    <li style="margin-top:10px;">@Html.ActionLink("Certificate Validation", "Certificates", "Home", new { area = "" }, null)</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="row">
+            <div class="as" style="min-height:93.2vh; max-height:9000000000000000000px; margin-top:50px; ">
+                @RenderBody()
+                @RenderSection("SPAViews", required: false)
+            </div>
+
+        </div>
+    </div>
+    <footer class="navbar myfooter oo" style=" margin-bottom: -20px; padding-bottom:0px; ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 style="margin-left:-230px;"><i class="glyphicon glyphicon-map-marker"></i>Our location</h3>
+                    <ul>
+                        <li>
+                            <a href="https://goo.gl/maps/3Mj9S1kGfjJtm9Ts7" target="_blank">
+                                <img src="~/Images/Location.jpg" class="loca" />
+                            </a>
+                        </li>
+                        <li class="lista">17 El Tayaran St, Rabaa Al Adaweyah, Nasr City, Cairo</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>
+                        <i class="glyphicon glyphicon-envelope"></i> Contact us
+                    </h3>
+                    <ul>
+                        <li>
+                            <address>
+                                <strong>
+                                    We would be happy to answer your questions,
+                                    so if you have a question about anything,
+                                    please feel free to contact us and we will be in touch as soon as possible.
+                                </strong><br />
+                                <strong>
+                                    <a href="mailto:Info@Epsn-eg.com">Info@Epsn-eg.com</a><br />
+                                </strong>
+                            </address>
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="20" height="20" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512; margin-top:20px;" xml:space="preserve">
+<path style="fill:#EDEDED;" d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0  S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z" />
+<path style="fill:#55CD6C;" d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662  c115.641,0,211.862-96.221,211.862-213.628S371.641,44.138,255.117,44.138S44.138,137.71,44.138,254.234  c0,40.607,11.476,80.331,32.662,113.876l5.297,7.945l-20.303,74.152L137.71,430.786z" />
+<path style="fill:#FEFEFE;" d="M187.145,135.945l-16.772-0.883c-5.297,0-10.593,1.766-14.124,5.297  c-7.945,7.062-21.186,20.303-24.717,37.959c-6.179,26.483,3.531,58.262,26.483,90.041s67.09,82.979,144.772,105.048  c24.717,7.062,44.138,2.648,60.028-7.062c12.359-7.945,20.303-20.303,22.952-33.545l2.648-12.359  c0.883-3.531-0.883-7.945-4.414-9.71l-55.614-25.6c-3.531-1.766-7.945-0.883-10.593,2.648l-22.069,28.248  c-1.766,1.766-4.414,2.648-7.062,1.766c-15.007-5.297-65.324-26.483-92.69-79.448c-0.883-2.648-0.883-5.297,0.883-7.062  l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945" />
+</svg><a>01063999112</a>-<a>01063999114</a>
+                        </li>
+                    </ul>
+                    <a href="https://www.facebook.com/EPSN.EG" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40px" height="40px"><path fill="#3F51B5" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z" /><path fill="#FFF" d="M34.368,25H31v13h-5V25h-3v-4h3v-2.41c0.002-3.508,1.459-5.59,5.592-5.59H35v4h-2.287C31.104,17,31,17.6,31,18.723V21h4L34.368,25z" /></svg>
+                    </a>
+                    <a href="https://www.instagram.com/epsn.eg/" target="_blank">
+                        <img style="width: 35px; height:35px; margin-bottom:30px;" src="~/Images/1200px-Instagram_logo_2016.svg.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="end">
+            <div class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Epsn @DateTime.Now.Year</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/jsfile.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/build/js/intlTelInput.js"></script>
+    @RenderSection("Scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="~/Scripts/scriptsTest.js"></script>
+</body>
+</html>

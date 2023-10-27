@@ -1,0 +1,38 @@
+﻿@model EPSN.Cours
+@{
+    ViewBag.Title = Model.Name;
+}
+<div class="container" style="margin-top:20px;">
+    <!-- Heading Row -->
+    <div class="row align-items-center my-5">
+        <div class="col-lg-7">
+            <img class="img-fluid rounded mb-4 mb-lg-0" width="653" height="436" src="~/Uploads/@Model.Image_ID" alt="">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">@Model.Name</h1>
+            <p>@Model.Description</p>
+
+        </div>
+        <!-- /.col-md-4 -->
+    </div>
+    <!-- /.row -->
+    <!-- Call to Action Well -->
+    <div class="row">
+        <div class="col-md-4 mb-5 col-lg-10">
+            <div >
+                <div class="card-body" style="margin-left:10px; margin-top:20px;">
+                    <div>@Html.Raw(HttpUtility.HtmlDecode(@Model.Description_Details).ToString())</div>    <br /><br /><hr />
+                    <div class="post-meta alert alert-info">
+                        <div > @Html.Raw(HttpUtility.HtmlDecode(@Model.Discound).ToString())</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="col-lg-offset-7">
+        <a class="btn btn-primary" href="@Url.Action("Create", "Trainees", new { area = "" })">Apply Now!</a>
+    </div>
+
+</div>

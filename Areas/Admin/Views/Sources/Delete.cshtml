@@ -1,0 +1,48 @@
+﻿@model EPSN.Source
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Source</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Source_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source_Tag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source_Tag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Article.Name_Article)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Article.Name_Article)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
